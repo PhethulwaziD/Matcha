@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
+	<link rel="icon" href="./icons/logo.ico">
+	<title>Sign Up</title>
+</head>
+<body>
+	<header>
+		<a href="/" class="logo">Matcha</a>
+		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
+	</header>
+	<div class="form-container">
+		<h2>Sign Up</h2>
+		<form action="/signup" method="post">
+			<div class="username-field, active">
+				<input type="text" name="userName" placeholder="Username">
+				<div class="error">
+					<p class="message" ></p>
+				</div>
+				<div class="btn-container">
+					<span class="next-arrow-btn"> 
+						&#8250;
+					</span>
+				</div>
+			</div>
+			<div class="first-name-field, inactive">
+				<input type="text" name="firstName" placeholder="First Name">
+				<div class="error">
+					<p class="message"></p>
+				</div>
+				<div class="btn-container">
+					<span class="back-arrow-btn"> 
+						&#8249;
+					</span>					
+					<span class="next-arrow-btn"> 
+						&#8250;
+					</span>
+				</div>
+			</div>
+			<div class="last-name-field, inactive">
+				<input type="text" name="lastName" placeholder="Last Name">
+				<div class="error">
+					<p class="message"></p>
+				</div>
+				<div class="btn-container">
+						<span class="back-arrow-btn"> 
+						&#8249;
+					</span>					
+					<span class="next-arrow-btn"> 
+						&#8250;
+					</span>
+				</div>
+			</div>
+			<div class="email-field, inactive">
+				<input type="email" name="email" placeholder="Email Address">
+				<div class="error">
+					<p class="message"></p>
+				</div>
+				<div class="btn-container">
+					<span class="back-arrow-btn"> 
+						&#8249;
+					</span>					
+					<span class="next-arrow-btn"> 
+						&#8250;
+					</span>
+				</div>
+			</div>				
+			<div class="password-field, inactive">
+				<input type="password" name="password" placeholder="Password">
+				<div class="error">
+					<p class="message"></p>
+				</div>
+				<div class="btn-container">
+					<span class="back-arrow-btn"> 
+						&#8249;
+					</span>				
+					<button class="submit-btn"> 
+						submit
+					</button>
+				</div>
+			</div>
+		</form>
+		<div class="more">
+			<p class="password"><a class="data" href="/password">Forgot password</a></p>
+			<p class="login"><a class="data" href="/signin">Sign in</a></p>
+		</div>
+		
+	</div>
+	<canvas id="canvas1"></canvas>
+	<footer>
+		<p>pdonga@2019</p>
+	</footer>
+	<script type="text/javascript" src="./scripts/particles.js"></script>
+	<script type="text/javascript" src="./scripts/sign-up.js"></script>
+</body>
+</html>

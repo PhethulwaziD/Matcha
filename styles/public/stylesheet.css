@@ -1,0 +1,58 @@
+body {
+	margin: 0;
+	padding: 0;
+	background:  #17202A;
+	font-family: sans-serif;
+	color: #e04199;
+}
+
+header {
+	position: relative;
+	max-width: 1400px;
+	margin:20px;
+	padding: 10px;
+	color: #B22A76;
+	box-sizing: border-box;
+}
+.logo-icon {
+	color: #194850;
+	height: 50px;
+	width: 50px;
+}
+
+.logo {
+	color: #194850;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 20;
+	text-align: center;
+	float: left;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 35px;
+}
+
+button:hover {
+	background: #e04199;
+	color: #fff;
+	transition: 0.5s;
+	box-shadow: 0 0 10px #e04199, 0 0 40px #e04199, 0 0 80px #e04199;
+}
+
+button a {
+	text-decoration: none;
+	color: #17202A;
+	letter-spacing: 1px;
+}
+
+#canvas1 {
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+footer p {
+	margin-right: 8px;
+	text-align: right;
+}
