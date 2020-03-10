@@ -13,11 +13,11 @@ router.get('/', (req, res) => {
 		if (err) throw err;
 		dbObj = client.db("matchaUsers");
 		let msg = '';
-		if (req.query.verificationKey == null || req.query.verificationKey.length < 32 || req.query.verificationKey.length > 32) {
+		if (req.query.k == null || req.query.k.length < 32 || req.query.k.length > 32) {
 			msg = 'Invalid verification link';
 			res.render('verified.ejs', {msg: msg});
-		} else if (req.query.verificationKey.length == 32) {
-			dbObj.collection("Users").find({verificationKey: req.query.verificationKey}).toArray((err, result) => {
+		} else if (req.query.k.length == 32) {
+			dbObj.collection("Users").find({verificationKey: req.query.k}).toArray((err, result) => {
 			    if (err) throw err;
 		       	if (result.length > 0) {
 		       		if (result[0].verified == 'Y') {
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 		       			res.render('verified.ejs', {msg: msg});
 		       		} else if (result[0].verified == 'N'){
 		       			let updates = { $set : {verified : 'Y'} };
-		       			dbObj.collection("Users").updateOne({verificationKey: req.query.verificationKey}, updates, (err, data) => {
+		       			dbObj.collection("Users").updateOne({verificationKey: req.query.k}, updates, (err, data) => {
 		       				if (err) throw err;
 		       				msg = "Account has been verfied, you can now login";
 		       				res.render('verified.ejs', {msg: msg});
@@ -35,7 +35,6 @@ router.get('/', (req, res) => {
 		        	msg = "Invalid verification link, uknown user";
 		        	res.render('verified.ejs', {msg: msg});
 		        }
-		        client.close();
 			});
 		}
 		

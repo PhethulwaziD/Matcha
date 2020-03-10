@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
 	<link rel="icon" href="./icons/logo.ico">
-	<title>Sign Up</title>
+	<title>Matcha</title>
 </head>
 <body>
 	<header>
@@ -14,19 +14,23 @@
 		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
 	</header>
 	<div class="form-container">
-		<h2>Forgot password</h2>
-		<form action="/password" method="post">
-			<div class="email-field, active">
-				<input type="email" name="email" placeholder="Email Address" value="<%= typeof email != 'undefined' ? email : ''%>">
+		<h2>Reset Password</h2>
+		<form action="/reset" method="post">
+			<div class="password-field">
+				<input type="password" name="password" placeholder="Password">
 				<div class="error">
-					<p class="message"><%= typeof error != 'undefined' ? error : ''%></p>
+					<p class="message"></p>
 				</div>
-				<div class="btn-container">
+				<input type="password" name="password" placeholder="Password">
+				<div class="error">
+					<p class="message"></p>
+				</div>
+				<div class="">		
 					<button class="submit-btn"> 
 						submit
 					</button>
 				</div>
-			</div>				
+			</div>
 		</form>
 		<div class="more">
 			<p class="login"><a class="data" href="/signup">Sign up</a></p>

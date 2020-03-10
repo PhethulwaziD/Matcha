@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/utilities'));
 
 app.use(express.urlencoded({ extended: false }));
 /*
-	Remember you do not need to specify the exact 
+	Remember you do not need to specify the exact location
 		in ejs for express.static to work
 */
 
@@ -32,6 +32,8 @@ app.use('/verified', require('./routes/verified'));
 
 //Forgot password
 app.use('/password', require('./routes/password'));
+
+app.use('/reset', require('./routes/reset'))
 
 //Listening to server
 app.listen(5000, () => console.log("Listening to server"));

@@ -10,28 +10,25 @@ const validateUser = (field) => {
 
 	if (field.userName != null) {
 	
-		errors.push(validateUserName(field.userName));
+		return (validateUserName(field.userName));
 
 	} else if (field.firstName != null) {
 
-		errors.push(validateFirstName(field.firstName));
+		return (validateFirstName(field.firstName));
 	
 	} else if (field.lastName != null) {
 
-		errors.push(validateLastName(field.lastName));
+		return (validateLastName(field.lastName));
 
 	} else if (field.email != null) {
 	
-		errors.push(validateEmail(field.email));
+		return (validateEmail(field.email));
 	
 	} else if (field.password != null) {
 	
-		errors.push(validatePassword(field.password));
+		return (validatePassword(field.password));
 	}
-	else {
-		errors.push('');
-	}
-	return (errors);
+	return ('');
 }
 
 module.exports = validateUser;
