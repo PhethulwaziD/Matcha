@@ -15,7 +15,7 @@ const sendMail = require('../utilities/user/sendMail');
 const resetPasswordMail = require('../utilities/user/resetPasswordMail');
 
 router.get('/', (req, res) => {
-	res.render('password');
+	res.render('password.ejs');
 });
 
 router.post('/', (req, res) => {
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
 		res.render('password', {email: req.body.email, error: errors});
 	} else if (errors.length == 0 && req.body.email != null) {
 		const client = MongoClient(uri, {useUnifiedTopology: true});
-		client.connect((err, data) => {
+		client.connect((err, db) => {
 			if (err) throw err;
 			dbObject = client.db("matchaUsers");
 			dbObject.collection("Users").find({email: req.body.email}).toArray((err, result) => {
@@ -32,16 +32,17 @@ router.post('/', (req, res) => {
 	        	if (result.length > 0) {
 	        		const key = randomstring.generate();
 	        		const user = {email: req.body.email};
-	        		const updates = { $set : {resetPasswordKey : key, requestedPasswoReset : 'Y' } };
+	        		const updates = { $set : {resetPasswordKey : key}};
 	        		dbObject.collection('Users').updateOne(user, updates, (err, data) => {
 	        			if (err) throw err;
 	        			const options = new resetPasswordMail(req.body.email, result.userName, key);
-	        			console.log(options);
+	        			//console.log(options);
 	        			//sendMail(options);
-	        			res.redirect('/reset/password')
+	        			res.render('password.ejs', {success: 'We have sent you an email with a link to reset yout passwor'});
+	        			db.close();
 	        		})
 	        	} else {
-	        		res.render('password', {email: req.body.email, error: 'No user with that email exist'});
+	        		res.render('password.ejs', {email: req.body.email, error: 'No user with that email exists'});
 	        	}
 			});
 		});

@@ -4,42 +4,58 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/forms/reset/stylesheet.css">
 	<link rel="icon" href="./icons/logo.ico">
 	<title>Matcha</title>
 </head>
 <body>
-	<header>
+	<header id="showcase">
 		<a href="/" class="logo">Matcha</a>
 		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
+		<div class="menu-toggle">+</div>
+		<nav>
+			<ul>
+				<li><a href="/" class="active">Home</a></li>
+				<li><a href="/signin">Sign in</a></li>
+				<li><a href="/signup">Sign up</a></li>
+				<li><a href="/password">Forgot password</a></li>
+			</ul>
+		</nav>
+		<div class="clearfix"></div>
 	</header>
-	<div class="form-container">
+	<div class="container">
 		<h2>Reset Password</h2>
+		<% if(typeof error == 'undefined') { %> 
 		<form action="/reset" method="post">
-			<div class="password-field">
-				<input type="password" name="password" placeholder="Password">
+			<div class="field-wrapper">
+				<input class="key" type="text" name="resetPasswordKey" placeholder="Key" value="<%= typeof body.resetPasswordKey != 'undefined' ? body.resetPasswordKey : ''%>">
+				<input class="password-one" type="password" name="password" placeholder="New Password" value="<%= typeof body.password != 'undefined' ? body.password : ''%>">
 				<div class="error">
-					<p class="message"></p>
+					<p class="message"> <%= typeof errorOne != 'undefined' ? errorOne : ''%></p>
 				</div>
-				<input type="password" name="password" placeholder="Password">
+				<input class="password-two" type="password" name="confirmPassword" placeholder="Confirm Password" value="<%= typeof body.confirmPassword  != 'undefined' ? body.confirmPassword : ''%>">
 				<div class="error">
-					<p class="message"></p>
+					<p class="message"> <%= typeof errorTwo != 'undefined' ? errorTwo : ''%></p>
 				</div>
-				<div class="">		
+				<div class="btn-container">		
 					<button class="submit-btn"> 
 						submit
 					</button>
 				</div>
 			</div>
 		</form>
-		<div class="more">
-			<p class="login"><a class="data" href="/signup">Sign up</a></p>
-		</div>
+		<% } else { %>
+			<p>
+				<%=error%>
+			</p>
+	<% } %>
 	</div>
 	<canvas id="canvas1"></canvas>
 	<footer>
 		<p>pdonga@2019</p>
 	</footer>
+	<script type="text/javascript" src="./scripts/home.js"></script>
 	<script type="text/javascript" src="./scripts/particles.js"></script>
 </body>
 </html>

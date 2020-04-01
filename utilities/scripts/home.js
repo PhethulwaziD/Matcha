@@ -5,7 +5,7 @@ const container = document.querySelector('.container');
 menuToggle.addEventListener('click', () => {
 	navBar.classList.toggle('active');
 	if (navBar.classList == 'active') {
-		container.style.top = '65%';	
+		container.style.top = '80%';	
 	} else {
 		container.style.top = '50%';
 	}

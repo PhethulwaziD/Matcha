@@ -41,7 +41,8 @@ router.post('/', (req, res) => {
 		        	const options = new signupMail(field.email, field.firstName, key);
 		        	//check errors
 		        	//sendMail(options);
-					res.redirect('/verify');
+		        	db.close();
+					res.render('signup.ejs',{success: "done"});
 		        });
 		    });
 			//res.render('signup.ejs', {errors : errors});
@@ -62,6 +63,7 @@ router.post('/', (req, res) => {
 	        	} else {
 	        		res.send('');
 	        	}
+	        	db.close();
 		    });
 		} else {
 			res.send(errors);

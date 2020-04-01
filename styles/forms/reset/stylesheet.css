@@ -1,0 +1,111 @@
+.field-wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	justify-content: center;
+	width: 320px;
+	height: 190px;
+	transition: all 0.5s ease;
+	border-radius: 2px;
+	background: #fff;
+}
+
+.user-input {
+	display: flex;
+}
+
+div input {
+	height: 25px;
+	width: 80%;
+	margin: 10%;
+	border: none;
+	border-radius: 2px;
+	color: #17202A;
+	flex: 1;
+	margin-bottom: 1px;
+	outline: none;
+	font-size: 16px;
+	box-shadow: 0 0 2px #e04199, 0 0 2px #e04199, 0 0 2px #e04199;
+}
+.password-one {
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+.password-two {
+	margin-top: 15px;
+}
+
+.submit-btn {
+	background: #fff;
+	border: none;
+	border-radius: 2px;
+	font-family: sans-serif;
+	padding: 12px 20px;
+	margin-bottom: 0px;
+	min-width: 50px;
+	cursor: pointer;
+	font-size: 16px;
+	box-shadow: 0 0 2px #e04199, 0 0 2px #e04199, 0 0 2px #e04199;
+}
+
+.btn-container {
+	position: absolute;
+	align-content: center;
+	justify-content: center;
+	margin-top: 0px;
+	margin-bottom: 2px;
+	padding-bottom: 0px;
+	width: 100%;
+	top: 130px;
+}
+
+div.error {
+	height: 10px;
+	left: 30px;
+	margin-bottom: 3px;
+}
+.message {
+	font-size: 11.5px;
+	color: red;
+	margin-top: 1px;
+	margin-left: 30px;
+	text-align: left;
+	margin-bottom: 0px;	
+}
+
+div.more {
+	position: absolute;
+	align-content: center;
+	justify-content: center;
+	margin-top: 0px;
+	margin-bottom: 2px;
+	padding-bottom: 0px;
+	width: 100%;
+	left: 50%;
+	top: 90%;
+	transform: translate(-50%, -50%);
+}
+
+.key {
+	display: none;
+}
+
+a.data {
+	text-decoration: none;
+	font-size: 13px;
+	color: #fff;
+}
+
+.container {
+	position: absolute;
+	left: 50%;
+	top: 60%;
+	height: 310px;
+	width: 320px;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	box-sizing: border-box;
+	border-radius: 2px;
+	color: #fff;
+}

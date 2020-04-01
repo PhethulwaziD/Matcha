@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/forms/signin/stylesheet.css">
 	<link rel="icon" href="./icons/logo.ico">
 	<title>Login</title>
 </head>
@@ -13,29 +14,19 @@
 		<a href="/" class="logo">Matcha</a>
 		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
 	</header>
-	<div class="form-container">
-		<h2>Sign in</h2>
+	<div class="container">
+		<h2>Sign In</h2>
 		<form action="/signin" method="post">
-			<div class="username-field, active">
-				<input type="text" name="userName" placeholder="Username">
+			<div class="field-wrapper">
+				<input class="username" type="text" name="userName" placeholder="Username or Email" value="<%= typeof body.userName != 'undefined' ? body.userName : ''%>">
 				<div class="error">
-					<p class="message" ></p>
+					<p class="message"> <%= typeof errorOne != 'undefined' ? errorOne : ''%></p>
 				</div>
-				<div class="btn-container">
-					<span class="next-arrow-btn"> 
-						&#8250;
-					</span>
-				</div>
-			</div>				
-			<div class="password-field, inactive">
-				<input type="password" name="password" placeholder="Password">
+				<input class="password" type="password" name="password" placeholder="Password" value="<%= typeof body.password  != 'undefined' ? body.password : ''%>">
 				<div class="error">
-					<p class="message"></p>
+					<p class="message"> <%= typeof errorTwo != 'undefined' ? errorTwo : ''%></p>
 				</div>
-				<div class="inative-btn-container">
-					<span class="back-arrow-btn"> 
-						&#8249;
-					</span>				
+				<div class="btn-container">		
 					<button class="submit-btn"> 
 						submit
 					</button>

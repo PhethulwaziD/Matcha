@@ -24,16 +24,13 @@ app.use('/signin', require('./routes/signin'));
 //Registration page
 app.use('/signup', require('./routes/signup'));
 
-//Verify page
-app.use('/verify', require('./routes/verify'));
-
 //Verification page
 app.use('/verified', require('./routes/verified'));
 
 //Forgot password
 app.use('/password', require('./routes/password'));
 
-app.use('/reset', require('./routes/reset'))
+app.use('/reset', require('./routes/reset'));
 
 //Listening to server
 app.listen(5000, () => console.log("Listening to server"));

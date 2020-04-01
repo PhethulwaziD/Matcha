@@ -9,7 +9,7 @@ const uri = "mongodb://localhost:27017";
 
 router.get('/', (req, res) => {
 	const client = new MongoClient(uri, { useUnifiedTopology: true });
-	client.connect( (err, data) => {
+	client.connect( (err, db) => {
 		if (err) throw err;
 		dbObj = client.db("matchaUsers");
 		let msg = '';
@@ -29,15 +29,16 @@ router.get('/', (req, res) => {
 		       				if (err) throw err;
 		       				msg = "Account has been verfied, you can now login";
 		       				res.render('verified.ejs', {msg: msg});
+		       				db.close();
 		       			});
 		       		}
 		        } else {
 		        	msg = "Invalid verification link, uknown user";
 		        	res.render('verified.ejs', {msg: msg});
+		        	db.close();
 		        }
 			});
 		}
-		
 	})
 });
 
