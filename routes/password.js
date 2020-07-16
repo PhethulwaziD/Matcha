@@ -26,16 +26,20 @@ router.post('/', (req, res) => {
 		const client = MongoClient(uri, {useUnifiedTopology: true});
 		client.connect((err, db) => {
 			if (err) throw err;
-			dbObject = client.db("matchaUsers");
+			let dbObject = client.db("matchaUsers");
 			dbObject.collection("Users").find({email: req.body.email}).toArray((err, result) => {
+			
 		        if (err) throw err
 	        	if (result.length > 0) {
+	        		console.log(result);
+	        		const Username = result[0].firstName;
 	        		const key = randomstring.generate();
 	        		const user = {email: req.body.email};
 	        		const updates = { $set : {resetPasswordKey : key}};
 	        		dbObject.collection('Users').updateOne(user, updates, (err, data) => {
 	        			if (err) throw err;
-	        			const options = new resetPasswordMail(req.body.email, result.userName, key);
+	        			const options = new resetPasswordMail(req.body.email, Username, key);
+	        			console.log(Username);
 	        			//console.log(options);
 	        			//sendMail(options);
 	        			res.render('password.ejs', {success: 'We have sent you an email with a link to reset yout passwor'});

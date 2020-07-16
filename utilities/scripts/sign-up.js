@@ -37,7 +37,7 @@ const animatedForm = () => {
 		const currentField = nextArrow.parentElement.parentElement;
 		const nextField = currentField.nextElementSibling;
 		nextArrow.addEventListener('click', event => {
-			const message = event.target.parentElement.previousElementSibling.firstElementChild;; 
+			const message = event.target.parentElement.previousElementSibling.firstElementChild; 
 			const input = message.parentElement.previousElementSibling;
 			const fieldData = `${input.name}=${input.value}`;
 			console.log(input);

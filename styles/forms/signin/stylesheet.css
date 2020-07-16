@@ -5,7 +5,7 @@
 	transform: translate(-50%, -50%);
 	justify-content: center;
 	width: 320px;
-	height: 190px;
+	height: 175px;
 	transition: all 0.5s ease;
 	border-radius: 2px;
 	background: #fff;
@@ -27,7 +27,7 @@ div input {
 	margin-bottom: 1px;
 	outline: none;
 	font-size: 16px;
-	box-shadow: 0 0 2px #e04199, 0 0 2px #e04199, 0 0 2px #e04199;
+	box-shadow: 0 0 2px #b22a76 0 0 2px #b22a76, 0 0 2px #b22a76;
 }
 .username {
 	margin-bottom: 0px;
@@ -47,7 +47,7 @@ div input {
 	min-width: 50px;
 	cursor: pointer;
 	font-size: 16px;
-	box-shadow: 0 0 2px #e04199, 0 0 2px #e04199, 0 0 2px #e04199;
+	box-shadow: 0 0 2px #b22a76, 0 0 2px #b22a76, 0 0 2px #b22a76;
 }
 
 .btn-container {
@@ -58,7 +58,7 @@ div input {
 	margin-bottom: 2px;
 	padding-bottom: 0px;
 	width: 100%;
-	top: 130px;
+	top: 115px;
 }
 
 div.error {

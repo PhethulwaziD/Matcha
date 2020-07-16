@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="./styles/forms/signin/stylesheet.css">
 	<link rel="icon" href="./icons/logo.ico">
-	<title>Login</title>
+	<title>Matcha</title>
 </head>
 <body>
 	<header>
@@ -19,12 +19,9 @@
 		<form action="/signin" method="post">
 			<div class="field-wrapper">
 				<input class="username" type="text" name="userName" placeholder="Username or Email" value="<%= typeof body.userName != 'undefined' ? body.userName : ''%>">
-				<div class="error">
-					<p class="message"> <%= typeof errorOne != 'undefined' ? errorOne : ''%></p>
-				</div>
 				<input class="password" type="password" name="password" placeholder="Password" value="<%= typeof body.password  != 'undefined' ? body.password : ''%>">
 				<div class="error">
-					<p class="message"> <%= typeof errorTwo != 'undefined' ? errorTwo : ''%></p>
+					<p class="message"><%= typeof error != 'undefined' ? error : ''%></p>
 				</div>
 				<div class="btn-container">		
 					<button class="submit-btn"> 

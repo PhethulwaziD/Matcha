@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/forms/profile/stylesheet.css">
+	<link rel="icon" href="./icons/logo.ico">
+	<title>Sign Up</title>
+</head>
+<body>
+	<header>
+		<a href="/" class="logo">Matcha</a>
+		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
+	</header>
+	<div class="profile-container">
+		<div class="form-wrapper">
+			<div class="left" >
+				<div class="data">
+					<h2>Hello, <span class="username"><%=user.userName%></span></h2>
+					<p>Tell us about yourself</p>
+				</div>
+			</div>
+			<div class="right">
+				<h2>Profile Info</h2>
+				<form method="POST">
+					<div class="input-container">
+						<label class="heading">Gender</label>
+						<div class="gender-wrapper">
+							<div class="option-container">
+								<input 
+									class="gender" 
+									type="radio" 
+									name="Gender" id="Male" 
+									value="Male"
+									<% if(user.Gender == 'Male'){ %> checked="checked" <% } %> >
+								<label class="radio-button" for="Male">
+									Male
+								</label>
+							</div>
+							<div class="option-container">
+								<input 
+									class="gender" 
+									type="radio" 
+									name="Gender" 
+									id="Female" 
+									value="Female"
+									<% if(user.Gender == 'Female'){ %> checked="checked" <% } %> >
+								<label class="radio-button" for="Female" id="Female">
+									Female
+								</label>
+							</div>
+							<div class="option-container">
+								<input 
+									class="gender" 
+									type="radio" 
+									name="Gender" 
+									id="Other" 
+									value="Other"
+									<% if(user.Gender == 'Other'){ %> checked="checked" <% } %> >
+								<label class="radio-button" for="Other" id="other">
+									Other
+								</label>
+							</div>
+								<p class="error"><%= typeof error.Gender != 'undefined' ? error.Gender : ''%></p>
+						</div>
+					</div>
+					<div class="input-container">
+						<label class="heading">Birthday</label>
+						<div class="birth-day">
+							<div class="select" id="s-day">
+								<select name="day" class="day">
+									<option value="0">Day</option>
+									<%
+										for ( let i = 1; i  < 32; i++) { %>
+											<option value="<%=i %>"  <% if(user) {if(user.day == i){ %> selected="selected" <% } } %> ><%=i %></option>
+										<%}
+									%>
+								</select>
+							</div>
+							<div class="select" id="s-month">
+								<select name="month" class="month">
+									<option value="0" <% if(user) { if(user.month == '0'){ %> selected="selected" <% } } %> >Month</option>
+									<option value="1" <% if(user) { if(user.month == '1'){ %> selected="selected" <% } } %> >January</option>
+									<option value="2" <% if(user) { if(user.month == '2'){ %> selected="selected" <% } } %> >February</option>
+									<option value="3" <% if(user) { if(user.month == '3'){ %> selected="selected" <% } } %> >March</option>
+									<option value="4" <% if(user) { if(user.month == '4'){ %> selected="selected" <% } } %> >April</option>
+									<option value="5" <% if(user) { if(user.month == '5'){ %> selected="selected" <% } } %> >May</option>
+									<option value="5" <% if(user) { if(user.month == '6'){ %> selected="selected" <% } } %> >May</option>
+									<option value="6" <% if(user) { if(user.month == '7'){ %> selected="selected" <% } } %> >June</option>
+									<option value="7" <% if(user) { if(user.month == '8'){ %> selected="selected" <% } } %> >July</option>
+									<option value="8" <% if(user) { if(user.month == '9'){ %> selected="selected" <% } } %> >August</option>
+									<option value="9" <%  if(user) {if(user.month == '10'){ %> selected="selected" <% } } %> >September</option>
+									<option value="10" <%  if(user) {if(user.month == '11'){ %> selected="selected" <% } } %> >October</option>
+									<option value="11">November</option>
+									<option value="12" <%  if(user) {if(user.month == '12'){ %> selected="selected" <% } } %> >December</option>
+								</select>
+							</div>
+							<div class="select" id="s-year">
+								<select name="year" class="year">
+									<option value="0">Year</option>
+									<%
+										for ( let i = 2020; i  > 1905; i--) { %>
+											<option value="<%=i %>" <% if(user) {if(user.year == i){ %> selected="selected" <% } } %> ><%=i %></option>
+										<%}
+									%>
+								</select>
+							</div>
+						</div>
+							<p class="error"><%= typeof error.Birthday != 'undefined' ? error.Birthday : ''%></p>
+					</div>
+					<div class="input-container">
+						<label class="heading">Sexual Orientation</label>
+						<div class="gender-wrapper">
+							<div class="option-container">
+								<input 
+									class="gender" 
+									type="radio" 
+									name="sexualOrientation" 
+									id="Heterosexual" 
+									value="Heterosexual"
+									<% if(user.sexualOrientation == 'Heterosexual'){ %> checked="checked" <% } %>>
+								<label class="radio-button" for="Heterosexual">
+									Heterosexual
+								</label>
+							</div>
+							<div class="option-container">
+								<input 
+									class="gender" 
+									type="radio" 
+									name="sexualOrientation" 
+									id="Homosexual" 
+									value="Homosexual"
+									<% if(user.sexualOrientation == 'Homosexual'){ %> checked="checked" <% } %>>
+								<label class="radio-button" for="Homosexual" id="Homosexual">
+									Homosexual
+								</label>
+							</div>
+							<div class="option-container">	
+								<input 
+									class="gender" 
+									type="radio" 
+									name="sexualOrientation" 
+									id="Bisexual" 
+									value="Bisexual"
+									<% if(user.sexualOrientation == 'Bisexual'){ %> checked="checked" <% } %>>
+								<label class="radio-button" for="Bisexual" id="Bisexual">
+									Bisexual
+								</label>
+							</div>
+						</div>
+							<p class="error"><%= typeof error.Orientation != 'undefined' ? error.Orientation : ''%></p>
+					</div>
+					<div class="input-container">
+						<label class="heading">Biography</label>
+						<div class="gender-wrapper">
+							<textarea name="Biography" class="field" placeholder="Who are you?">
+								<%= typeof user.Biography != 'undefined' ? user.Biography : ''%>
+							</textarea>
+						</div>
+							<p class="error"><%= typeof error.Biography != 'undefined' ? error.Biography : ''%></p>
+					</div>
+					<div class="input-container">
+						<label class="heading">Interests</label>
+						<div class="gender-wrapper">
+							<div class="interest-wrapper">
+								<input class="input-interest" type="text" name="Interests" placeholder="e.g swimming">
+								<div class="add-button">&#43;</div>
+							</div>
+							<div class="interest-block">
+								<%
+									if (user.Interests) {
+										for (let i = 0; i < user.Interests.length; i++) { %>
+											<div class="option-container">
+												<span class="radio-button">
+												<%=user.Interests[i]%>	
+												</span>
+												<div class="delete-button">&#215;</div>
+											</div>
+										<%}
+									}
+								%>
+							</div>
+						</div>
+							<p class="error"><%= typeof error.Interests != 'undefined' ? error.Interests : ''%></p>
+					</div>
+					<div class="btn-container">
+						<button class="btn">Done</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<canvas id="canvas1"></canvas>
+	<footer>
+		<p>pdonga@2019</p>
+	</footer>
+	<script type="text/javascript" src="./scripts/profile-page.js"></script>
+	<script type="text/javascript" src="./scripts/particles.js"></script>
+</body>
+</html>

@@ -28,7 +28,8 @@ router.post('/', (req, res) => {
 	const client = new MongoClient(uri, { useUnifiedTopology: true });
 	client.connect((err, db) => {
 		if (err) throw err;
-		dbObj = client.db("matchaUsers");
+
+		const dbObj = client.db("matchaUsers");
 		if (field.userName != null && field.email != null) {
 			const key = randomstring.generate();
 			const newUser = new userObject(field.userName.toLowerCase(), 
@@ -40,7 +41,7 @@ router.post('/', (req, res) => {
 		       		if (err) throw err;
 		        	const options = new signupMail(field.email, field.firstName, key);
 		        	//check errors
-		        	//sendMail(options);
+		        	sendMail(options);
 		        	db.close();
 					res.render('signup.ejs',{success: "done"});
 		        });
