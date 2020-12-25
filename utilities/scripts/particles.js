@@ -36,8 +36,10 @@ class Particle {
 	//drawing methods
 	draw() {
 		ctx.beginPath();
-		ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-		ctx.fillStyle = '#e04199';
+		ctx.font= "17.5px Syne";
+		ctx.textAlign = "center";
+		ctx.fillText('hello',this.x, this.y);
+		ctx.fillStyle = '#2f2d2e';
 		ctx.fill();
 	}
 
@@ -83,13 +85,13 @@ let init = () => {
 		let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
 		let directionX = (Math.random() * 5) -2.5;
 		let directionY = (Math.random() * 5) -2.5;
-		let color = '#e04199';
+		let color = '#2f2d2e';
 		particleArray.push(new Particle(x, y, directionX, directionY, size, color));
 	}
 };
 
 let connect = () => {
-	let opacityValue = 1;
+	let opacityValue = 0.5;
 	for (let i = 0; i < particleArray.length; i++) {
 		for (let j =0; j < particleArray.length; j++){
 			let distance = ((particleArray[i].x - particleArray[j].x) 
@@ -98,7 +100,7 @@ let connect = () => {
 						* (particleArray[i].y - particleArray[j].y));
 			if (distance < (canvas.width/7) * (canvas.height/7)) {
 				opacityValue = 1 - (distance/20000);
-				ctx.strokeStyle = 'rgba(178, 42, 118,'+ opacityValue +')';
+				ctx.strokeStyle = 'rgba(43, 39, 70, 0.5)';
 				ctx.lineWidth = 1;
 				ctx.beginPath();
 				ctx.moveTo(particleArray[i].x, particleArray[i].y);

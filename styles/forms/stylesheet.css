@@ -1,18 +1,35 @@
-.form-container {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	height: 280px;
-	width: 320px;
-	transform: translate(-50%, -50%);
-	text-align: center;
-	box-sizing: border-box;
-	border-radius: 2px;
+@import url('https://fonts.googleapis.com/css2?family=Syne&display=swap');
+.body-container {
+	position:absolute;
+	width: 100%;
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
+
+.body-wrapper {
+	width: 95%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align:center;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-container {
+    height: 210px;
+    width: 304px;
+    text-align: center;
+    box-sizing: border-box;
+    background: #fff;
+}
+
 .form-container h2 {
-	font-size: 23px;
+	font-size: 2.5rem;
 	margin: 1px;
-	color: #fff
+	color: #17202A
 }
 .form-container p {
 	color: #fff;
@@ -30,7 +47,7 @@
 	top:45%;
 	transform: translate(-50%, -50%);
 	justify-content: center;
-	width: 320px;
+	width: 304px;
 	height: 140px;
 	transition: all 0.5s ease;
 	border-radius: 2px;
@@ -48,22 +65,22 @@ div input {
 	margin-bottom: 1px;
 	outline: none;
 	font-size: 16px;
-	box-shadow: 0 0 2px #e04199, 0 0 2px #e04199, 0 0 2px #e04199;
+	font-family: 'Syne', sans-serif;
+	border-bottom:1px solid #17202A;
 }
 
 .back-arrow-btn,
 .next-arrow-btn {
 	background: #fff;
-	border: none;
-	border-radius: 2px;
-	font-family: sans-serif;
+	border: 1px solid #17202A;
+	color: #17202A;
+	font-family: 'Syne', sans-serif;
 	padding: 12px 20px;
 	min-width: 50px;
 	margin: 10px;
 	margin-top: 2px;
 	cursor: pointer;
 	font-size: 16px;
-	box-shadow: 0 0 2px #e04199, 0 0 2px #e04199, 0 0 2px #e04199;
 }
 
 .submit-btn {
@@ -81,14 +98,10 @@ div input {
 .active {
 	display: block;
 	position: absolute;
-	left: 50%;
-	top:40%;
-	transform: translate(-50%, -50%);
 	justify-content: center;
-	width: 320px;
+	width: 304px;
 	height: 140px;
 	transition: all 0.5s ease;
-	border-radius: 2px;
 	background: #fff;
 }
 
@@ -122,10 +135,9 @@ div input {
 }
 
 span:hover {
-	background: #e04199;
+	background: #17202A;
 	color: #fff;
 	transition: 0.5s;
-	box-shadow: 0 0 10px #e04199, 0 0 40px #e04199, 0 0 80px #e04199;
 }
 
 div.error {
@@ -143,16 +155,7 @@ p.message {
 }
 
 div.more {
-	position: absolute;
 	align-content: center;
-	justify-content: center;
-	margin-top: 0px;
-	margin-bottom: 2px;
-	padding-bottom: 0px;
-	width: 100%;
-	left: 50%;
-	top:75%;
-	transform: translate(-50%, -50%);
 }
 
 .login,
