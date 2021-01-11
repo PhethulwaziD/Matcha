@@ -3,43 +3,55 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="./styles/forms/signin/stylesheet.css">
 	<link rel="icon" href="./icons/logo.ico">
-	<title>Matcha</title>
+	<title>Sign Up</title>
 </head>
-<body>
-	<header>
-		<a href="/" class="logo">Matcha</a>
+<body id="signin-body">
+	<header id="signin-header">
+		<a href="" class="logo">Matcha</a>
 		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
+		<div class="menu-toggle">+</div>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/password">Forgot password</a></li>
+				<li><a href="/signup">Sign Up</a></li>
+			</ul>
+		</nav>
+		<div class="clearfix"></div>
 	</header>
-	<div class="container">
-		<h2>Sign In</h2>
-		<form action="/signin" method="post">
-			<div class="field-wrapper">
-				<input class="username" type="text" name="userName" placeholder="Username or Email" value="<%= typeof body.userName != 'undefined' ? body.userName : ''%>">
-				<input class="password" type="password" name="password" placeholder="Password" value="<%= typeof body.password  != 'undefined' ? body.password : ''%>">
-				<div class="error">
-					<p class="message"><%= typeof error != 'undefined' ? error : ''%></p>
-				</div>
-				<div class="btn-container">		
-					<button class="submit-btn"> 
-						submit
-					</button>
-				</div>
+	<div class="body-container">
+		<div class="body-wrapper" style="
+			background: url('./icons/signin.jpg'); 
+			background-size: cover; 
+			background-position: center center;
+			background-repeat: no-repeat;">
+			<div id="singin-container" class="form-container">
+				<h2>Sign In</h2>
+				<form action="/signin" method="post">
+					<div class="field-wrapper">
+						<input class="username" type="text" name="username" placeholder="Username or Email" value="<%= typeof body.username != 'undefined' ? body.username : ''%>">
+						<input class="password" type="password" name="password" placeholder="Password" value="<%= typeof body.password  != 'undefined' ? body.password : ''%>">
+						<div class="error">
+							<p class="message"><%= typeof error != 'undefined' ? error : ''%></p>
+						</div>
+						<div class="btn-container">		
+							<button class="submit-btn" id="sign-in"> 
+								submit
+							</button>
+						</div>
+					</div>
+				</form>
 			</div>
-		</form>
-		<div class="more">
-			<p class="password"><a class="data" href="/password">Forgot password</a></p>
-			<p class="login"><a class="data" href="/signup">Sign up</a></p>
 		</div>
 	</div>
-	<canvas id="canvas1"></canvas>
-	<footer>
+	<footer id="signin-footer">
 		<p>pdonga@2019</p>
 	</footer>
-	<script type="text/javascript" src="./scripts/particles.js"></script>
+	<!--<script type="text/javascript" src="./scripts/particles.js"></script>-->
 	<script type="text/javascript" src="./scripts/sign-in.js"></script>
+	<script type="text/javascript" src="./scripts/home.js"></script>
 </body>
 </html>

@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./styles/public/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="./styles/forms/profile/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./styles/forms/stylesheet.css">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
   			crossorigin=""/>
@@ -18,26 +20,45 @@
 	</header>
 	<div class="profile-container">
 		<div class="form-wrapper">
+			<div class="left" style="
+				background: url('./icons/index.jpg'); 
+				background-size: cover; 
+				background-position: center center;
+				background-repeat: no-repeat;" >
+				<div id="mapid"></div>
+				<div class="data">
+					<h2>Location</span></h2>
+					<p>Location Location Location. This is one of the way we find you the perfect match</p>
+				</div>
+			</div>
 			<div class="right">
-				<h2>Location</h2>
-				<form method="POST">
-					<div class="input-container">
-						<div class="gender-wrapper">
-							<div class="interest-wrapper">
-								<input class="input-interest" type="text" name="Location1" placeholder="Location">
-								<input class="inactive" type="text" name="Location2">
-							</div>
+				<div class="profile-container">
+					<div class="form-wrapper">
+						<div class="right">
+							<h2>Location</h2>
+							<form method="POST">
+								<div class="input-container">
+									<div class="gender-wrapper">
+										<div class="interest-wrapper">
+											<input class="input-interest" type="text" name="Location1" placeholder="Location">
+											<input class="inactive" type="text" name="Location2">
+											<div class="btn-container">		
+												<button class="submit-btn" id="sign-in"> 
+													submit
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+							</form>
 						</div>
 					</div>
-					<div id="mapid"></div>
-					<div class="btn-container">
-						<button class="btn">Done</button>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
-	<canvas id="canvas1"></canvas>
 	<footer>
 		<p>pdonga@2019</p>
 	</footer>

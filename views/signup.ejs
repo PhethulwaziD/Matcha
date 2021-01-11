@@ -24,7 +24,7 @@
 	</header>
 	<div class="body-container">
 		<div class="body-wrapper" style="
-		background: url('./icons/puzzle.jpg'); 
+		background: url('./icons/signin.svg'); 
 		background-size: cover; 
 		background-position: center center;
 		background-repeat: no-repeat;">
@@ -32,8 +32,8 @@
 			<% if(typeof success == 'undefined') { %> 
 			<h2>Sign Up</h2>
 			<form action="/signup" method="post">
-				<div class="username-field, active">
-					<input type="text" name="userName" placeholder="Username">
+				<div class="username-field, active-section">
+					<input type="text" name="username" placeholder="Username">
 					<div class="error">
 						<p class="message" ></p>
 					</div>
@@ -43,63 +43,62 @@
 						</span>
 					</div>
 				</div>
-				<div class="first-name-field, inactive">
-					<input type="text" name="firstName" placeholder="First Name">
+				<div class="first-name-field, inactive-section">
+					<input type="text" name="firstname" placeholder="First Name">
 					<div class="error">
 						<p class="message"></p>
 					</div>
 					<div class="btn-container">
 						<span class="back-arrow-btn"> 
-							Back;
+							Back
 						</span>					
 						<span class="next-arrow-btn"> 
 							Next
 						</span>
 					</div>
 				</div>
-				<div class="last-name-field, inactive">
-					<input type="text" name="lastName" placeholder="Last Name">
+				<div class="last-name-field, inactive-section">
+					<input type="text" name="lastname" placeholder="Last Name">
 					<div class="error">
 						<p class="message"></p>
 					</div>
 					<div class="btn-container">
 							<span class="back-arrow-btn"> 
-							Back;
+							Back
 						</span>					
 						<span class="next-arrow-btn"> 
 							Next
 						</span>
 					</div>
 				</div>
-				<div class="email-field, inactive">
+				<div class="email-field, inactive-section">
 					<input type="email" name="email" placeholder="Email Address">
 					<div class="error">
 						<p class="message"></p>
 					</div>
 					<div class="btn-container">
 						<span class="back-arrow-btn"> 
-							Back;
+							Back
 						</span>					
 						<span class="next-arrow-btn"> 
 							Next
 						</span>
 					</div>
 				</div>				
-				<div class="password-field, inactive">
+				<div class="password-field, inactive-section">
 					<input type="password" name="password" placeholder="Password">
 					<div class="error">
 						<p class="message"></p>
 					</div>
 					<div class="btn-container">
 						<span class="back-arrow-btn"> 
-							Back;
+							Back
 						</span>				
 						<button class="submit-btn"> 
-							submit
+							Done
 						</button>
 					</div>
 				</div>
-
 			</form>
 			<% } else { %>
 			<br>
@@ -109,20 +108,13 @@
 				</p>
 			<% } %>
 		</div>
-		<div class="more">
-			<p class="password"><a class="data" href="/password">Forgot password</a></p>
-			<p class="login"><a class="data" href="/signin">Sign in</a></p>
-		</div>
 	</div>
 	</div>
-	
-
-	
-	<canvas id="canvas1"></canvas>
 	<footer>
 		<p>pdonga@2019</p>
 	</footer>
-	<script type="text/javascript" src="./scripts/particles.js"></script>
+	<!--<script type="text/javascript" src="./scripts/particles.js"></script>-->
 	<script type="text/javascript" src="./scripts/sign-up.js"></script>
+	<script type="text/javascript" src="./scripts/home.js"></script>
 </body>
 </html>

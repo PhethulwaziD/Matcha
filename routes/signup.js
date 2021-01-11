@@ -1,8 +1,6 @@
 const express = require('express');
 
-const MongoClient = require('mongodb').MongoClient;
-
-const uri = "mongodb://localhost:27017";
+const db = require('../config/database');
 
 const router = express.Router();
 
@@ -24,51 +22,65 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 	const field = req.body;
-	const errors = validateUser(field);
-	const client = new MongoClient(uri, { useUnifiedTopology: true });
-	client.connect((err, db) => {
-		if (err) throw err;
-
-		const dbObj = client.db("matchaUsers");
-		if (field.userName != null && field.email != null) {
-			const key = randomstring.generate();
-			const newUser = new userObject(field.userName.toLowerCase(), 
-				field.firstName, field.lastName, field.email.toLowerCase(), field.password, key);
-			bcrypt.hash(field.password, 10, (err, hash) => {
-				if (err) throw err;
-				newUser.password = hash;
-				dbObj.collection("Users").insertOne(newUser, (err, result) => {
-		       		if (err) throw err;
-		        	const options = new signupMail(field.email, field.firstName, key);
-		        	//check errors
-		        	sendMail(options);
-		        	db.close();
-					res.render('signup.ejs',{success: "done"});
-		        });
-		    });
-			//res.render('signup.ejs', {errors : errors});
-		} else if (errors.length == 0 && (field.userName != null || field.email != null)) {
-			let message = '';
-			let  findObject = {};
-			if (field.userName != null) {
-				message = "Username already taken";
-				findObject = {"userName": field.userName.toLowerCase()};
-			} else if (field.email != null) {
-				message = "Email already taken"
-				findObject = {"email": field.email.toLowerCase()};
-			}	
-			dbObj.collection("Users").find(findObject).toArray((err, result) => {
-		        if (err) throw err
-	        	if (result.length > 0) {
-					res.send(message);
-	        	} else {
-	        		res.send('');
-	        	}
-	        	db.close();
-		    });
-		} else {
-			res.send(errors);
-		}
-	});
+	let errors = validateUser(field);
+	if (field.username != null && field.email != null) {
+		let {username, firstname, lastname, email, password} = field;
+		const key = randomstring.generate();
+		const newUser = new userObject(username.toLowerCase(), username, firstname, lastname, email.toLowerCase(), password, key);
+		bcrypt.hash(password, 10, (err, hash) => {
+			if (err) throw err;
+			newUser.password = hash;
+			insert(newUser, () => {
+				mail(email, firstname, key,() => {
+					return res.render('signup.ejs',{success: "done"});
+				})
+			})
+		});
+	} else if (errors.length == 0 && (field.username != null || field.email != null)) {
+		find(field, errors, (err) => {
+			return res.send(err);
+		});
+	} else  {
+		return res.send(errors);
+	}
 });
+
+
+const insert = (user, cb) => {
+	let sql = 'INSERT INTO users SET ?';
+	let query = db.query(sql, user, (err, result) => {
+		if (err) throw err;
+		cb();
+	})
+}
+
+mail = (mail, firstname, key, cb) => {
+	console.log("Sending mail");
+	// const options = new signupMail(email, firstname, key);
+	// sendMail(options);
+	cb();
+}
+
+const find = (field, err, cb) => {
+	let sql = '';
+	if (field.username != null) {
+		err = "Username already taken";
+		sql = `SELECT * FROM users WHERE lowerd = '${field.username.toLowerCase()}'`;
+	} else if (field.email != null) {
+		err = "Email already taken";
+		sql = `SELECT * FROM users WHERE email = '${field.email.toLowerCase()}'`;
+	}
+	return userExists(sql, err, cb);
+}
+
+const userExists = (sql, error, cb) => {
+	db.query(sql, (err, result) => {
+		if (err) 
+			throw err;
+		if (result.length > 0)
+			cb(error)
+		else
+			cb('');
+	});
+}
 module.exports = router;

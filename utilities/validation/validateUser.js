@@ -1,34 +1,30 @@
+const validate = require('../user/functions')
 
-const validateUserName = require('./userName');
-const validateFirstName = require('./firstName');
-const validateLastName = require('./lastName');
-const validateEmail = require('./email');
-const validatePassword = require('./password');
 
 const validateUser = (field) => {
-	const errors = [];
 
-	if (field.userName != null) {
+	if (field.username != null) {
+
+		return (validate.validateUsername(field.username));
+
+	} else if (field.firstname != null) {
+
+		return (validate.validateFirstName(field.firstname));
 	
-		return (validateUserName(field.userName));
+	} else if (field.lastname != null) {
 
-	} else if (field.firstName != null) {
-
-		return (validateFirstName(field.firstName));
-	
-	} else if (field.lastName != null) {
-
-		return (validateLastName(field.lastName));
+		return (validate.validateLastName(field.lastname));
 
 	} else if (field.email != null) {
 	
-		return (validateEmail(field.email));
+		return (validate.validateEmail(field.email));
 	
 	} else if (field.password != null) {
 	
-		return (validatePassword(field.password));
+		return (validate.validatePassword(field.password));
 	}
 	return ('');
 }
+
 
 module.exports = validateUser;

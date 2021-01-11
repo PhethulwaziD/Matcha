@@ -23,7 +23,8 @@ select {
 	font-size: 16px;
 	letter-spacing: 0.5px;
 	color: #17202A;
-
+	font-family: inherit;
+	margin-right: 1px;;
 }
 
 .select {
@@ -32,7 +33,7 @@ select {
 	height: 30px;
 	overflow: hidden;
 	line-height: 2;
-	border-radius: 1px;
+	border-bottom: 1px solid #17202A;
 }
 
 .select::after {
@@ -45,12 +46,12 @@ select {
 
 #s-day {
 	width: 60px;
-	margin-right: -1px;
+	margin-right: 1px;
 }
 
 #s-month {
 	width: 100px;	
-	margin-left: -1px;
+	margin-right: 1px;
 }
 
 #s-year {
@@ -69,12 +70,12 @@ h2 {
 }
 .profile-container {
 	margin: auto;
-	width: 80%;
+	width: 95%;
 }
 
-.data {
+/* .data {
 
-}
+} */
 
 .form-wrapper {
 	display: flex;
@@ -140,32 +141,33 @@ input[type="radio"] {
 
 .radio-button {
 	padding: 4px;
-	border-radius: 1px;
-	background: #17202A;;
-	color: #fff; 
+	border: 1px solid #17202A;
+	background: none;
+	color:#17202A; 
 }
 
 input[type="radio"]:checked + label {
-	box-shadow: 0 0 10px #e04199, 0 0 40px #e04199, 0 0 80px #e04199;
-	background: #e04199;
+	background: #17202A;
 	border: none;
+	color: #fff;
+
 }
 
 textarea {
 	resize: none;
 	width: 80%;
 	height: auto;
-	font-family: sans-serif;
+	font-family: inherit;
 	border: none;
 	border-bottom: 1px solid #17202A;
 	font-size: 15px;
 }
 .interest-wrapper {
-	display: inline-flex;
-	width: 80%;
+	display: flex;
+	width: 90%;
 }
 input[type="text"] {
-	width: 100%;
+	width: 87%;
 	padding: 5px;
     height: 35px;
     border: 1px solid #17202A;
@@ -178,7 +180,6 @@ p.error {
 	font-size: 11.5px;
 	color: red;
 	margin-top: 0px;
-	margin-left: 15px;
 	text-align: left;
 	margin-bottom: 0px;	
 }
@@ -228,6 +229,10 @@ p.error {
 	margin-bottom: 30px;
 	width: 100%;
 }
+.interest-container {
+	display:flex;
+	width: 93%;
+}
 /*
 input.gender{
 	height: 25px;
@@ -255,5 +260,12 @@ input.gender{
 	}
 	span.radio-button {
 		font-size: 14px;
+	}
+	.interest-block  {
+		width: 85%;
+	}
+	.interest-container {
+		display:flex;
+		width: 100%;
 	}
 }

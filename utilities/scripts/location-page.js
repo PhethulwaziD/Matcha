@@ -46,7 +46,7 @@ fetch('https://pos.ls.hereapi.com/positioning/v1/locate?apiKey=-lHFKMcQ3A0F2iyDQ
 	});
 	
 	var options = {
-	  enableHighAccuracy: true\,
+	  enableHighAccuracy: false,
 	  timeout: 10 * 1000,
 	  maximumAge: 0
 	};

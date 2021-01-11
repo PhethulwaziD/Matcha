@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>index</title>
-	<link rel="stylesheet" type="text/css" href="./styles/stylesheet.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./styles/stylesheet.css">
 	<link rel="icon" href="./icons/logo.ico">
+	<title>Sign Up</title>
 </head>
-<body>
-	<header id="showcase">
-		<a href="" class="logo">Matcha</a>
+<body id="index-body">
+	<header class="showcase" id="index-header">
+		<a href="" class="logo" id="index-logo">Matcha</a>
 		<a href="/"><img src="./icons/logo.ico" class="logo-icon"></a>
-		<div class="menu-toggle">+</div>
+		<div id="index-toggle" class="menu-toggle">+</div>
 		<nav>
 			<ul>
-				<li><a href="/" class="active">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a id="index-links" href="/">Home</a></li>
+				<li><a id="index-links" href="/password">Forgot Password</a></li>
+				<li><a id="index-links" href="/signin">Sign In</a></li>
 			</ul>
 		</nav>
 		<div class="clearfix"></div>
 	</header>
-	<div class="container">
-		<div>
-			<h2>Search for your match</h2>
-		</div>
-		<div> 
-			<button class="btn"><a href="/signin">Sign in</a></button>
-			<button class="btn"><a href="/signup">Sign up</a></button>
+	<div class="body-container">
+		<div class="body-wrapper" style="
+			background: url('./icons/index.jpg'); 
+			background-size: cover; 
+			background-position: center center;
+			background-repeat: no-repeat;">
+			
+			<div class="form-container">
+				<div>
+					<h2 id="index-h2">Want to find you match?</h2>
+				</div>
+				<div> 
+					<button class="btn"><a href="/signin">Sign In</a></button>
+					<button class="btn"><a href="/signup">Sign Up</a></span>
+				</div>
+			</div>
 		</div>
 	</div>
-	<canvas id="canvas1"></canvas>
-	<footer>
+	<footer id="index-footer">
 		<p>pdonga@2019</p>
 	</footer>
 	<script type="text/javascript" src="./scripts/

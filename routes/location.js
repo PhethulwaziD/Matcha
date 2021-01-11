@@ -9,14 +9,14 @@ const requestIp = require('request-ip');
 
 
 router.get('/', (req, res) => {
-	console.log(req.connection.remoteAddress);
+	//console.log(req.connection.remoteAddress);
 	let options = {
 		provider : 'openstreetmap'
 	}
 
 	let geocoder = nodeGeocoder(options);
 	geocoder.reverse({lat: -26.2041028, lon:28.0473051}, function(err, res) {
-		console.log(res);
+		console.log("Response: "+res);
 	});
 	res.render('location');
 });

@@ -20,7 +20,7 @@ const animatedForm = () => {
 					{
 						if (response.length == 0) {
 							submitBtn.disabled = false;
-							submitBtn.style.border = '1px solid #e04199';	
+							submitBtn.style.border = '1px solid #17202A';	
 						} else if (response.length != 0){
 							submitBtn.disabled = true;
 							submitBtn.style.border = 'none';
@@ -70,17 +70,17 @@ const animatedForm = () => {
 }
 
 const nextInputField = (parent, nextField) => {
-	parent.classList.add('inactive');
-	parent.classList.remove('active');
-	nextField.classList.add('active');
-	nextField.classList.remove('inactive');
+	parent.classList.add('inactive-section');
+	parent.classList.remove('active-section');
+	nextField.classList.add('active-section');
+	nextField.classList.remove('inactive-section');
 }
 
 const previousInputField = (parent, previousField) => {
-	parent.classList.add('inactive');
-	parent.classList.remove('active');
-	previousField.classList.add('active');
-	previousField.classList.remove('inactive');
+	parent.classList.add('inactive-section');
+	parent.classList.remove('active-section');
+	previousField.classList.add('active-section');
+	previousField.classList.remove('inactive-section');
 }
 
 animatedForm();

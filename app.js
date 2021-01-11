@@ -1,11 +1,10 @@
 const express = require('express');
-																				
+																	
 const session = require('express-session');
 
 const app = express();
 
-//const cors = require('cors')
-
+const cors = require('cors')
 
 app.set('view engine', 'ejs');
 
@@ -57,6 +56,8 @@ app.use('/reset', require('./routes/reset'));
 app.use('/profile', require('./routes/profile'));
 
 app.use('/location', require('./routes/location'));
+
+app.use('/createtable', require('./routes/createtable'));
 
 //Listening to server
 app.listen(5000, () => console.log("Listening to server"));
